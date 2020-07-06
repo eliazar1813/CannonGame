@@ -39,5 +39,10 @@ public class Cannon extends Sprite {
 		b.setVelocity(10*LookUp.cos[angle],-10*LookUp.sin[angle]);
 		
 	}
+	
+	public Rect cannonBody() {
+		
+		return new Rect(x - 10, y, 50, 60);
+	}
 
 }
