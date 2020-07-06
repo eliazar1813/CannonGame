@@ -49,6 +49,8 @@ public class CannoF10 extends GameBase {
 	Rect Rightlimit = new Rect (780, 10, 10, 800);
 	Rect Ground = new Rect (0, 600, 800, 30);
 	
+	Rect cannonBody;
+	
 	int speed = 0;
 	
 	public void SetScreen() {
@@ -61,6 +63,7 @@ public class CannoF10 extends GameBase {
 		
 		CannonBase = Toolkit.getDefaultToolkit().getImage("base.png");
 		cannon = new Cannon(370,530);
+		
 		
 		Background = Toolkit.getDefaultToolkit().getImage("Background.png");
 	
@@ -97,6 +100,8 @@ public class CannoF10 extends GameBase {
 
 	@Override
 	public void inTheGameLoop() {
+		
+		cannonBody = cannon.cannonBody();
 		
 		//CANNON MOVEMENTS.
 		if(pressed[LT]) cannon.moveLeft(5); 
@@ -311,6 +316,11 @@ public class CannoF10 extends GameBase {
 				bottle[i] = new broken_bottle (rnd.nextInt(700),rnd.nextInt(20) - 50);
 				Health -= 1;
 			}
+			
+			if(cannonBody.contains(bottle[i].x, bottle[i].y)) {
+				bottle[i] = new broken_bottle (rnd.nextInt(700),rnd.nextInt(20) - 50);
+				Health -= 5;
+			}
 		}
 		
 									//CREATES NEW  CACTUS01 OBJECT WHEN HITS THE GROUND.
@@ -320,6 +330,11 @@ public class CannoF10 extends GameBase {
 			if(Ground.contains(cactus_01[i].x, cactus_01[i].y)) {
 				cactus_01[i] = new cactus_01 (rnd.nextInt(700),rnd.nextInt(20)-1000);
 				Health -= 1;
+			}
+			
+			if(cannonBody.contains(cactus_01[i].x, cactus_01[i].y)) {
+				cactus_01[i] = new cactus_01 (rnd.nextInt(700),rnd.nextInt(20)-1000);
+				Health -= 5;
 			}
 		}
 		
@@ -331,6 +346,11 @@ public class CannoF10 extends GameBase {
 				cactus_02[i] = new cactus_02 (rnd.nextInt(700),rnd.nextInt(20)-3500);
 				Health -= 1;
 			}
+			
+			if(cannonBody.contains(cactus_02[i].x, cactus_02[i].y)) {
+				cactus_02[i] = new cactus_02 (rnd.nextInt(700),rnd.nextInt(20)-3500);
+				Health -= 5;
+			}
 		}
 		
 							//CREATES NEW  CACTUS03 OBJECTS WHEN HITS THE GROUND.
@@ -340,6 +360,11 @@ public class CannoF10 extends GameBase {
 			if(Ground.contains(cactus_03[i].x, cactus_03[i].y)) {
 				cactus_03[i] = new cactus_03 (rnd.nextInt(700),rnd.nextInt(10)-1150);
 				Health -= 1;
+			}
+			
+			if(cannonBody.contains(cactus_03[i].x, cactus_03[i].y)) {
+				cactus_03[i] = new cactus_03 (rnd.nextInt(700),rnd.nextInt(20)-3500);
+				Health -= 5;
 			}
 		}
 		
@@ -351,6 +376,11 @@ public class CannoF10 extends GameBase {
 				knife[i] = new knife (rnd.nextInt(700),rnd.nextInt(5)-3500);
 				Health -= 1;
 			}
+			
+			if(cannonBody.contains(knife[i].x, knife[i].y)) {
+				knife[i] = new knife (rnd.nextInt(700),rnd.nextInt(5)-3500);
+				Health -= 5;
+			}
 		}
 		
 							//CREATES NEW  KNIFE OBJECTS WHEN HITS THE GROUND.
@@ -360,6 +390,11 @@ public class CannoF10 extends GameBase {
 			if(Ground.contains(nail[i].x, nail[i].y)) {
 				nail[i] = new nail (rnd.nextInt(700),rnd.nextInt(5)-4000);
 				Health -= 1;
+			}
+			
+			if(cannonBody.contains(nail[i].x, nail[i].y)) {
+				nail[i] = new nail (rnd.nextInt(700),rnd.nextInt(5)-4000);
+				Health -= 5;
 			}
 		}
 		
@@ -371,6 +406,11 @@ public class CannoF10 extends GameBase {
 				nail[i] = new nail (rnd.nextInt(700),rnd.nextInt(5)-5500);
 				Health -= 1;
 			}
+			
+			if(cannonBody.contains(nail[i].x, nail[i].y)) {
+				nail[i] = new nail (rnd.nextInt(700),rnd.nextInt(5)-5500);
+				Health -= 5;
+			}
 		}
 		
 							//CREATES NEW  OBJECTS PIN POSITION WHEN HITS THE GROUND.
@@ -379,6 +419,11 @@ public class CannoF10 extends GameBase {
 			if(Ground.contains(pin[i].x, pin[i].y)) {
 				pin[i] = new pin (rnd.nextInt(700),rnd.nextInt(5)-5500);
 				Health -= 1;
+			}
+			
+			if(cannonBody.contains(pin[i].x, pin[i].y)) {
+				pin[i] = new pin (rnd.nextInt(700),rnd.nextInt(5)-5500);
+				Health -= 5;
 			}
 		}
 		
@@ -390,6 +435,11 @@ public class CannoF10 extends GameBase {
 				pin2[i] = new pin2 (rnd.nextInt(700),rnd.nextInt(30)-6000);
 				Health -= 1;
 			}
+			
+			if(cannonBody.contains(pin2[i].x, pin2[i].y)) {
+				pin2[i] = new pin2 (rnd.nextInt(700),rnd.nextInt(5)-5500);
+				Health -= 5;
+			}
 		}
 		
 		                  //CREATES NEW  OBJECT SPIKY_BALL POSITION WHEN HITS THE GROUND.
@@ -399,6 +449,11 @@ public class CannoF10 extends GameBase {
 			if(Ground.contains(spiky_ball[i].x, spiky_ball[i].y)) {
 				spiky_ball[i] = new spiky_ball (rnd.nextInt(700),rnd.nextInt(20) - 7500);
 				Health -= 1;
+			}
+			
+			if(cannonBody.contains(spiky_ball[i].x, spiky_ball[i].y)) {
+				spiky_ball[i] = new spiky_ball (rnd.nextInt(700),rnd.nextInt(20) - 7500);
+				Health -= 5;
 			}
 		}
 		
@@ -558,7 +613,7 @@ public class CannoF10 extends GameBase {
 
 		//*/
 		
-	
+		
 		
 	}
 
